@@ -24,7 +24,7 @@
     UIPanGestureRecognizer* panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
     [self.navigationController.view addGestureRecognizer:panRecognizer];
     
-    self.animator = [[RRViewControllerAnimator alloc] initWithType:RRAnimationTypeCircle];
+    self.animator = [[RRViewControllerAnimator alloc] initWithType:RRAnimationTypeSquare];
 }
 
 - (void)pan:(UIPanGestureRecognizer*)recognizer
@@ -53,6 +53,10 @@
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
 {
     if (operation == UINavigationControllerOperationPop) {
+        return self.animator;
+    }
+    
+    if (operation == UINavigationControllerOperationPush) {
         return self.animator;
     }
     return nil;

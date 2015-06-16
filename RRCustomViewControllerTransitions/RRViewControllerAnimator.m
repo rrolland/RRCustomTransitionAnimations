@@ -30,6 +30,43 @@
     switch (self.animationType) {
         case RRAnimationTypeCircle:
         {
+            UIView *containerView = transitionContext.containerView;
+            UIViewController* toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+            UIViewController* fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+            
+            //var button = fromViewController.button
+            CGRect buttonFrame = CGRectMake((fromViewController.view.frame.size.width/2) - 30, 100, 60, 60);
+
+            [containerView addSubview:toViewController.view];
+
+            UIBezierPath *circleMaskPathInitial = [UIBezierPath bezierPathWithOvalInRect:buttonFrame];
+            
+            CGPoint extremePoint = CGPointMake(0, CGRectGetHeight(toViewController.view.bounds));
+            CGFloat radius = sqrt((extremePoint.x*extremePoint.x) + (extremePoint.y*extremePoint.y));
+            UIBezierPath *circleMaskPathFinal = [UIBezierPath bezierPathWithOvalInRect:CGRectInset(buttonFrame, -radius, -radius)];
+            
+            //5
+            CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+            [maskLayer setPath:circleMaskPathFinal.CGPath];
+            toViewController.view.layer.mask = maskLayer;
+
+            [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+                CABasicAnimation *maskLayerAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+                maskLayerAnimation.fromValue = (__bridge id)(circleMaskPathInitial.CGPath);
+                maskLayerAnimation.toValue = (__bridge id)(circleMaskPathFinal.CGPath);
+                maskLayerAnimation.duration = 0.3;
+                maskLayerAnimation.delegate = self;
+                [maskLayer addAnimation:maskLayerAnimation forKey:@"path"];
+            } completion:^(BOOL finished) {
+                fromViewController.view.transform = CGAffineTransformIdentity;
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                
+            }];
+        }
+            break;
+            
+        case RRAnimationTypeSquare:
+        {
             UIViewController* toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
             UIViewController* fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
             [[transitionContext containerView] addSubview:toViewController.view];
@@ -45,12 +82,6 @@
                 
             }];
 
-        }
-            break;
-            
-        case RRAnimationTypeSquare:
-        {
-            
         }
             break;
             
