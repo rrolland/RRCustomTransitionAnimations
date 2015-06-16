@@ -10,4 +10,6 @@
 
 @interface RRSecondViewController : UIViewController
 
+- (IBAction)closeViewController:(id)sender;
+
 @end
