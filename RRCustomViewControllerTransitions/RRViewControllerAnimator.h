@@ -9,6 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    RRAnimationTypeCircle = 0,
+    RRAnimationTypeSquare = 1,
+} RRAnimationType;
+
 @interface RRViewControllerAnimator : NSObject <UIViewControllerAnimatedTransitioning>
+
+@property (nonatomic, assign) RRAnimationType animationType;
+
+- (instancetype)initWithType:(RRAnimationType)theType;
 
 @end

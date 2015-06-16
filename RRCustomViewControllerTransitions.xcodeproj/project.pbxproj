@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		652B54851B2F209A0023280E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 652B54841B2F209A0023280E /* main.m */; };
 		652B54881B2F209A0023280E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 652B54871B2F209A0023280E /* AppDelegate.m */; };
-		652B548B1B2F209A0023280E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652B548A1B2F209A0023280E /* ViewController.m */; };
 		652B548E1B2F209A0023280E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652B548C1B2F209A0023280E /* Main.storyboard */; };
 		652B54901B2F209A0023280E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 652B548F1B2F209A0023280E /* Images.xcassets */; };
 		652B54931B2F209A0023280E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652B54911B2F209A0023280E /* LaunchScreen.xib */; };
@@ -20,6 +19,8 @@
 		652B54B11B2F5C7D0023280E /* RRFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652B54AF1B2F5C7D0023280E /* RRFirstViewController.m */; };
 		652B54B41B2F5CE80023280E /* RRViewControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 652B54B31B2F5CE80023280E /* RRViewControllerAnimator.m */; };
 		652B54B51B2F5CE80023280E /* RRViewControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 652B54B31B2F5CE80023280E /* RRViewControllerAnimator.m */; };
+		652B54B91B2F89090023280E /* RRNavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 652B54B81B2F89090023280E /* RRNavigationControllerDelegate.m */; };
+		652B54BA1B2F89090023280E /* RRNavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 652B54B81B2F89090023280E /* RRNavigationControllerDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +39,6 @@
 		652B54841B2F209A0023280E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		652B54861B2F209A0023280E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		652B54871B2F209A0023280E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		652B54891B2F209A0023280E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		652B548A1B2F209A0023280E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		652B548D1B2F209A0023280E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		652B548F1B2F209A0023280E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		652B54921B2F209A0023280E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -52,6 +51,8 @@
 		652B54AF1B2F5C7D0023280E /* RRFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRFirstViewController.m; sourceTree = "<group>"; };
 		652B54B21B2F5CE80023280E /* RRViewControllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRViewControllerAnimator.h; sourceTree = "<group>"; };
 		652B54B31B2F5CE80023280E /* RRViewControllerAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRViewControllerAnimator.m; sourceTree = "<group>"; };
+		652B54B71B2F89090023280E /* RRNavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRNavigationControllerDelegate.h; sourceTree = "<group>"; };
+		652B54B81B2F89090023280E /* RRNavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRNavigationControllerDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +96,9 @@
 			children = (
 				652B54A81B2F2A160023280E /* Animator */,
 				652B54861B2F209A0023280E /* AppDelegate.h */,
+				652B54B61B2F88EA0023280E /* NavigationController */,
 				652B54A91B2F2A210023280E /* ViewControllers */,
 				652B54871B2F209A0023280E /* AppDelegate.m */,
-				652B54891B2F209A0023280E /* ViewController.h */,
-				652B548A1B2F209A0023280E /* ViewController.m */,
 				652B548C1B2F209A0023280E /* Main.storyboard */,
 				652B548F1B2F209A0023280E /* Images.xcassets */,
 				652B54911B2F209A0023280E /* LaunchScreen.xib */,
@@ -151,6 +151,15 @@
 				652B54AB1B2F5C570023280E /* RRSecondViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		652B54B61B2F88EA0023280E /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				652B54B71B2F89090023280E /* RRNavigationControllerDelegate.h */,
+				652B54B81B2F89090023280E /* RRNavigationControllerDelegate.m */,
+			);
+			name = NavigationController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,8 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				652B54B91B2F89090023280E /* RRNavigationControllerDelegate.m in Sources */,
 				652B54B01B2F5C7D0023280E /* RRFirstViewController.m in Sources */,
-				652B548B1B2F209A0023280E /* ViewController.m in Sources */,
 				652B54881B2F209A0023280E /* AppDelegate.m in Sources */,
 				652B54AC1B2F5C570023280E /* RRSecondViewController.m in Sources */,
 				652B54851B2F209A0023280E /* main.m in Sources */,
@@ -267,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				652B54B11B2F5C7D0023280E /* RRFirstViewController.m in Sources */,
+				652B54BA1B2F89090023280E /* RRNavigationControllerDelegate.m in Sources */,
 				652B54AD1B2F5C570023280E /* RRSecondViewController.m in Sources */,
 				652B549F1B2F209A0023280E /* RRCustomViewControllerTransitionsTests.m in Sources */,
 				652B54B51B2F5CE80023280E /* RRViewControllerAnimator.m in Sources */,
@@ -458,6 +468,7 @@
 				652B54A41B2F209A0023280E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		652B54A51B2F209A0023280E /* Build configuration list for PBXNativeTarget "RRCustomViewControllerTransitionsTests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +477,7 @@
 				652B54A71B2F209A0023280E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
