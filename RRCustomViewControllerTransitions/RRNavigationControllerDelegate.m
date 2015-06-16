@@ -13,7 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationController *navigationController;
 @property (strong, nonatomic) UIPercentDrivenInteractiveTransition* interactionController;
-@property (strong, nonatomic) RRViewControllerAnimator* animator;
+@property (strong, nonatomic) RRViewControllerAnimator* displayAnimator;
+@property (strong, nonatomic) RRViewControllerAnimator* hideAnimator;
 
 @end
 
@@ -24,7 +25,8 @@
     UIPanGestureRecognizer* panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
     [self.navigationController.view addGestureRecognizer:panRecognizer];
     
-    self.animator = [[RRViewControllerAnimator alloc] initWithType:RRAnimationTypeSquare];
+    self.displayAnimator = [[RRViewControllerAnimator alloc] initWithType:RRAnimationTypeSquare];
+    self.hideAnimator = [[RRViewControllerAnimator alloc] initWithType:RRAnimationTypeCircle];
 }
 
 - (void)pan:(UIPanGestureRecognizer*)recognizer
@@ -53,11 +55,11 @@
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
 {
     if (operation == UINavigationControllerOperationPop) {
-        return self.animator;
+        return self.hideAnimator;
     }
     
     if (operation == UINavigationControllerOperationPush) {
-        return self.animator;
+        return self.displayAnimator;
     }
     return nil;
 }
